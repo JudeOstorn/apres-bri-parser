@@ -9,54 +9,50 @@ require 'mechanize'
 
 class Sniffer
 
-  URL = 'http://www.a-yabloko.ru'
+  URL = 'http://www.a-yabloko.ru/catalog/'
+
+  Statistics = Struct.new( :group_statistict,
+                           :coef_image,
+                           :min_image_size,
+                           :max_image_size,
+                           :avg_image_size)
 
   def initialize
-    @results = [['Тип сущности', 'Наименование', 'Группа товара', 'Имя файла с изображением данного товара', 'Условный идетификатор группы или товара']]
+    @results = []
     @page = Mechanize.new
     @page.history_added = Proc.new { sleep 0.5 }
     create_catalog_map
   end
 
-  def sniff(resourse: '/catalog/')
-    @page.get(URL+resourse).search('.goods').each do |page|
-    p a = page.css('.item a.img').map { |name| name['title'] }
+  def sniff(resourse: '')
+    @page.get(URL+resourse) do |page|
+      @results << page.css('.goods .item a.img').map { |name| "item" + "," + name['title'] + "," + name['rel'] + "," + "#{resourse[0..-2].to_i}" + "," + item_id(name, resourse) }
     end
   end
 
   def create_catalog_map
-    @page.get(URL+'/catalog/').search('.sc-desktop table').each do |page|
-      @group = page.css('.root').map { |link| link['href'] }
-      @subgroup = page.css('.ch a').map { |link| link['href'] }
+    @page.get(URL).search('.sc-desktop table').each do |page|
+      @group = page.css('.root').map { |link| link['href'].gsub("/catalog/",'') }
+      @subgroup = page.css('.ch a').map { |link| link['href'].gsub("/catalog/",'') }
     end
   end
 
+  def parse
+    @group.each { |group| sniff(resourse: group) }
+    @subgroup.each { |group| sniff(resourse: group) }
+    save
+  end
+
   def save
+    File.open('test.txt', 'w+') { |f| f << @results }
+  end
+private
+  def item_id(name, resourse)
+    name["href"].gsub("/catalog/#{resourse}goods/",'').to_i.to_s
   end
 end
 
-class Statistics
-  def initialize
-    @group_statistict = {}
-    @coef_image = 0.0 # %persent image have
-    @min_image_size = {name: '', size: 0.0}
-    @max_image_size = {name: '', size: 0.0}
-    @avg_image_size = 0.0
-  end
-end
-
-
-Sniffer.new.sniff(resourse: '/catalog/45/')
-
-
-
-
-
-
-#page.css('.sc-desktop table').each
-#page.search('.goods').each do |a|
- #p a.text
-#end
+Sniffer.new.parse
 
 #File.open('test2.txt', 'w+') do |csv_file|
 #  results.each do |row|
