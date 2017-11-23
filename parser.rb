@@ -54,16 +54,5 @@ class Sniffer
   def save
     File.open('test.txt', 'w+') { |f| f.puts(@results) }
   end
-
-  def download_image(url)
-
-  end
 end
-#a = Sniffer.new
-#p a.group
-
-#a.sniff(resourse: '21/')
-#b = a.sniff(resourse: '45/')
-
-#b.map { |z| p z}
 Sniffer.new.parse
