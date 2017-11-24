@@ -22,37 +22,49 @@ class Sniffer
     @page = Mechanize.new
     @page.history_added = proc { sleep 0.5 }
     create_catalog_map
+    @counter = 0
   end
 
   def sniff(resourse: '')
     @page.get(URL + resourse.to_s) do |page|
-      page.css('.goods .item a.img').map do |name|
-        @results << ("item,#{name['title']},#{resourse},#{name['rel']}," + name['href'].gsub("/catalog/#{resourse}/goods/", '').to_i.to_s)
-        @page.get(name['rel']).save "./#{name['rel']}"
+      # группы и подгруппы
+      page.css('div.children a').map do |row|
+        @results << ("group,#{row.text},#{resourse},#{image_url(row)},#{resourse}")
+        #@page.get(image_url(row)).save "./#{image_url(row)}"
       end
+      # товары
+      page.css('.goods .item a.img').map do |row|
+        @results << ("item,#{row['title']},#{resourse},#{row['rel']},#{item_id(row, resourse)}" )
+        #@page.get(row['rel']).save "./#{row['rel']}"
+      end if resourse != '' # не собираем тавары с главной страницы
     end
   end
 
   def create_catalog_map
     @page.get(URL).search('.sc-desktop table').each do |page|
-      #@group = page.css('.root').map do |link|
-      #  @results << ("group, " link['href'].text "#{link['href'].gsub('/catalog/', '').to_i}")
-      # end
-      @group = page.css('.root').map { |link| link['href'].gsub('/catalog/', '').to_i }
-      @subgroup = page.css('.ch a').map { |link| link['href'].gsub('/catalog/', '').to_i }
+      @group = page.css('.root').map { |link| link['href'].gsub('/catalog/', '').to_i }.sort.unshift('')
+      @subgroup = page.css('.ch a').map { |link| link['href'].gsub('/catalog/', '').to_i }.sort
     end
-    #p @group.sort
-    #p @subgroup.sort
   end
 
   def parse
     @group.each { |group| sniff(resourse: group) }
-    @subgroup.each { |group| sniff(resourse: group) }
+    @subgroup.each { |subgroup| sniff(resourse: subgroup) }
     save
   end
 
   def save
     File.open('test.txt', 'w+') { |f| f.puts(@results) }
+  end
+
+  private
+
+  def item_id(row, resourse)
+    row['href'].gsub("/catalog/#{resourse}/goods/", '').to_i
+  end
+
+  def image_url(row)
+    row['style'].gsub("background-image:url(", '').chop!
   end
 end
 Sniffer.new.parse
