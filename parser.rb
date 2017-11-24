@@ -30,12 +30,12 @@ class Sniffer
       # группы и подгруппы
       page.css('div.children a').map do |row|
         @results << ("group,#{row.text},#{resourse},#{image_url(row)},#{resourse}")
-        #@page.get(image_url(row)).save "./#{image_url(row)}"
+        @page.get(image_url(row)).save "./#{image_url(row)}"
       end
       # товары
       page.css('.goods .item a.img').map do |row|
         @results << ("item,#{row['title']},#{resourse},#{row['rel']},#{item_id(row, resourse)}" )
-        #@page.get(row['rel']).save "./#{row['rel']}"
+        @page.get(row['rel']).save "./#{row['rel']}"
       end if resourse != '' # не собираем тавары с главной страницы
     end
   end
