@@ -21,7 +21,7 @@ class Sniffer
     @results = []
     @page = Mechanize.new
     @page.history_added = proc { sleep 0.5 }
-    create_catalog_map
+    groups_list
     @counter = 0
   end
 
@@ -29,21 +29,29 @@ class Sniffer
     @page.get(URL + resourse.to_s) do |page|
       # группы и подгруппы
       page.css('div.children a').map do |row|
-        @results << ("group,#{row.text},#{resourse},#{image_url(row)},#{resourse}")
-        @page.get(image_url(row)).save "./#{image_url(row)}"
+        @results << "#{data_type(group_id(row))},#{row.text},#{resourse},#{image_url(row)},#{resourse}"
+        # @page.get(image_url(row)).save "./#{image_url(row)}"
+        # analize()
       end
-      # товары
-      page.css('.goods .item a.img').map do |row|
-        @results << ("item,#{row['title']},#{resourse},#{row['rel']},#{item_id(row, resourse)}" )
-        @page.get(row['rel']).save "./#{row['rel']}"
-      end if resourse != '' # не собираем тавары с главной страницы
+      # товары (не собираем товары с главной страницы)
+      if resourse != ''
+        page.css('.goods .item a.img').map do |row|
+          @results << "item,#{row['title'].gsub(%r{/,|\d*$/}, '')},#{resourse},#{row['rel']},#{item_id(row, resourse)}"
+          # @page.get(row['rel']).save "./#{row['rel']}"
+          # analize()
+        end
+      end
     end
+    p @results
   end
 
-  def create_catalog_map
+  def analize()
+  end
+
+  def groups_list
     @page.get(URL).search('.sc-desktop table').each do |page|
-      @group = page.css('.root').map { |link| link['href'].gsub('/catalog/', '').to_i }.sort.unshift('')
-      @subgroup = page.css('.ch a').map { |link| link['href'].gsub('/catalog/', '').to_i }.sort
+      @group = page.css('.root').map { |link| group_id(link) }.sort.unshift('')
+      @subgroup = page.css('.ch a').map { |link| group_id(link) }.sort
     end
   end
 
@@ -59,12 +67,28 @@ class Sniffer
 
   private
 
+  def analize
+
+  end
+
+  def group_id(link)
+    link['href'].gsub('/catalog/', '').to_i
+  end
+
   def item_id(row, resourse)
     row['href'].gsub("/catalog/#{resourse}/goods/", '').to_i
   end
 
   def image_url(row)
-    row['style'].gsub("background-image:url(", '').chop!
+    row['style'].gsub('background-image:url(', '').chop!
+  end
+
+  def data_type(resourse)
+    if @group.include? resourse
+      'group'
+    else
+      'subgroup'
+    end
   end
 end
-Sniffer.new.parse
+Sniffer.new.sniff(resourse: '')
