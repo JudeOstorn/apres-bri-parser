@@ -1,51 +1,20 @@
 require 'mechanize'
 
-# 1) Тип сущности (группа, подгруппа, товар)
-# 2) Наименование (группы, подгруппы, товара)
-# 3) Группу товара (если данная строка предствляет товар)
-# 4) Имя файла с изображением данного товара (при парсинге каталога, необходимо так же загружать изображения товара, давать файлам уникальные имена, и записывать имя файла в соответсвуюущую строчку в таблице-файле)
-# 5) Условный идетификатор группы или товара (по которому вы сможете определить, были ли этот товар/группа загружены вашей программой)
-# После того, как первую 1000 товаров ваша программа загрузила, необходимо рассчитать статистику и вывести ее в консоль:
-
 # class search and save catalog in file
 class Sniffer
   URL = 'http://www.a-yabloko.ru/catalog/'.freeze
-
-  Statistics = Struct.new(:group_statistict,
-                          :coef_image,
-                          :min_image_size,
-                          :max_image_size,
-                          :avg_image_size)
 
   def initialize
     @results = []
     @page = Mechanize.new
     @page.history_added = proc { sleep 0.5 }
     groups_list
+
+    # statistics
     @counter = 0
-  end
-
-  def sniff(resourse: '')
-    @page.get(URL + resourse.to_s) do |page|
-      # группы и подгруппы
-      page.css('div.children a').map do |row|
-        @results << "#{data_type(group_id(row))},#{row.text},#{resourse},#{image_url(row)},#{resourse}"
-        # @page.get(image_url(row)).save "./#{image_url(row)}"
-        # analize()
-      end
-      # товары (не собираем товары с главной страницы)
-      if resourse != ''
-        page.css('.goods .item a.img').map do |row|
-          @results << "item,#{row['title'].gsub(%r{/,|\d*$/}, '')},#{resourse},#{row['rel']},#{item_id(row, resourse)}"
-          # @page.get(row['rel']).save "./#{row['rel']}"
-          # analize()
-        end
-      end
-    end
-    p @results
-  end
-
-  def analize()
+    @group_info = {}
+    @coef_image = 0.0
+    @images = []
   end
 
   def groups_list
@@ -61,14 +30,49 @@ class Sniffer
     save
   end
 
-  def save
-    File.open('test.txt', 'w+') { |f| f.puts(@results) }
+  def sniff(resourse: '')
+    @page.get(URL + resourse.to_s) do |page|
+      # группы и подгруппы
+      page.css('div.children a').map do |row|
+        @results << "#{data_type(group_id(row))},#{row.text},#{resourse},#{image_url(row)},#{resourse}"
+        @page.get(image_url(row)).save "./#{image_url(row)}"
+        analyze(image_url(row), resourse)
+      end
+      # товары (не собираем товары с главной страницы)
+      if resourse != ''
+        page.css('.goods .item a.img').map do |row|
+          @results << "item,#{row['title']},#{resourse},#{row['rel']},#{item_id(row, resourse)}"
+          @page.get(row['rel']).save "./#{row['rel']}"
+          analyze(row['rel'], resourse)
+        end
+      end
+    end
   end
 
-  private
+  protected
 
-  def analize
+  def analyze(image, resourse)
+    @counter += 1
+    print '.'
+    @coef_image += 1 if image == ''
+    image_size = @page.get(image).response['content-length'].to_i if image != ''
+    @images << image_size
 
+    if @group_info[resourse].nil?
+      @group_info[resourse] = 1
+    else
+      @group_info[resourse] += 1
+    end
+
+    if (@counter % 1000) == 0
+      p "#{@counter} сущностей обработано"
+      p @group_info
+      p "#{1.00 * 100.0 - @coef_image.to_f / @counter.to_f * 100.0}% товаров у которых присутствовало изображение"
+      p "#{@images.min}KB минимальный размер картинки"
+      p "#{@images.max}KB максимальный размер картинки"
+      p "#{@images.reduce(:+) / @images.size.to_f}KB средний размер картинки"
+    end
+  rescue
   end
 
   def group_id(link)
@@ -84,11 +88,11 @@ class Sniffer
   end
 
   def data_type(resourse)
-    if @group.include? resourse
-      'group'
-    else
-      'subgroup'
-    end
+    @group.include?(resourse) ? 'group' : 'subgroup'
+  end
+
+  def save
+    File.open('test.txt', 'w+') { |f| f.puts(@results) }
   end
 end
-Sniffer.new.sniff(resourse: '')
+Sniffer.new.parse
