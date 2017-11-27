@@ -72,7 +72,6 @@ class Sniffer
       p "#{@images.max}KB максимальный размер картинки"
       p "#{@images.reduce(:+) / @images.size.to_f}KB средний размер картинки"
     end
-  rescue
   end
 
   def group_id(link)
