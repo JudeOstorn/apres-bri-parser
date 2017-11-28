@@ -27,7 +27,7 @@ class Sniffer
   def parse
     @group.each { |group| sniff(resourse: group) }
     @subgroup.each { |subgroup| sniff(resourse: subgroup) }
-    save
+    save_info
   end
 
   def sniff(resourse: '')
@@ -90,7 +90,8 @@ class Sniffer
     @group.include?(resourse) ? 'group' : 'subgroup'
   end
 
-  def save
+
+  def save_info
     File.open('test.txt', 'w+') { |f| f.puts(@results) }
   end
 end
