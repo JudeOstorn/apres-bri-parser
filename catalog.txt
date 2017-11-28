@@ -1,0 +1,174 @@
+group,Для детей633,,/storage/catalog/.thumbs/5d0b9333abda4bddf3ad1ebcc159362e_h100.jpg,
+group,Собственное производство315,,/storage/catalog/.thumbs/28549918fca8787760a7960cec0fa0d1_h100.jpg,
+group,Молочные продукты919,,/storage/catalog/.thumbs/1852bc34ea1c003c970a10b93090f279_h100.png,
+group,Мороженое80,,/storage/catalog/.thumbs/f2b0edca750c04023504e43c1777da6a_h100.jpg,
+group,Сыры276,,/storage/catalog/.thumbs/f00b71506e7e2ca8f6370301ef5f90e3_h100.png,
+group,Хлебобулочные изделия и выпечка175,,/storage/catalog/.thumbs/f383be5b2b51c5b4fe94120f026d6b74_h100.jpg,
+group,Яйцо29,,/storage/catalog/.thumbs/f90a08423cf4cdad534258cc3abb239d_h100.jpg,
+group,Овощи, фрукты, зелень, грибы, орехи, сухофрукты261,,/storage/catalog/.thumbs/6728f2148042cae679368f8f921c7914_h100.jpg,
+group,Напитки, соки, воды567,,/storage/catalog/.thumbs/0d78b6a6a16e04ecabdaeef7b708a529_h100.jpg,
+group,Бакалея991,,/storage/catalog/.thumbs/7ee005fcca43573f9902e6c500e13c1a_h100.jpg,
+group,Консервированные продукты620,,/storage/catalog/.thumbs/11c499739bbd8340a51210ba766c5ea9_h100.jpg,
+group,Приправы, заправки, соусы764,,/storage/catalog/.thumbs/d5e46262c588b99bd1e49ca82657fc16_h100.jpg,
+group,Чай, кофе, какао428,,/storage/catalog/.thumbs/97f81d9a51b86b02055f68da6012d808_h100.jpg,
+group,Кондитерские изделия1292,,/storage/catalog/.thumbs/9330e87f4c351b7f36df85a6a796f978_h100.jpg,
+group,Диетические продукты243,,/storage/catalog/.thumbs/4128085c83273a6d7000a51e0fe8cc22_h100.jpg,
+group,Мясо, птица96,,/storage/catalog/.thumbs/429a1339cc1163e59fed3df8f8d96d7b_h100.jpg,
+group,Колбасы, сосиски, паштеты368,,/storage/catalog/.thumbs/ca587604ecdb968b54afe3a5e5eac35e_h100.jpg,
+group,Рыба, морепродукты355,,/storage/catalog/.thumbs/24ecba2cbc4c063ee189f58ac1081d27_h100.jpg,
+group,Салаты60,,/storage/catalog/.thumbs/037f28a36056dc28222e33f7c52cfb1b_h100.JPG,
+group,Замороженные продукты261,,/storage/catalog/.thumbs/3cd44fbef5cf783e4dcfebe10a0a12b6_h100.jpg,
+group,Товары для животных269,,/storage/catalog/.thumbs/145dca45acf765344b16910f37f9905e_h100.jpg,
+group,Промышленные товары2850,,/storage/catalog/.thumbs/fb0f82448cad60297cd5e635d4bede8f_h100.png,
+group,Пиво безалкогольное6,,/storage/catalog/.thumbs/3db2ae85ba3a8e9bcfa8004d9d51af52_h100.jpg,
+group,Печатные издания29,,/storage/catalog/.thumbs/8db46cdadf35e95a30fbcd2743c5fccd_h100.jpg,
+group,Товары для школьников19,,/storage/catalog/.thumbs/177df45cf2095454cbaad7bc4d1f7e4b_h100.png,
+group,Подарки228,,/storage/catalog/.thumbs/acba3e4b7cdfd83e27f4c2aadb5bcbdb_h100.png,
+subgroup,Молоко, сливки, молочные коктейли172,2,/storage/catalog/.thumbs/7d5f07a7cee1c1fd1812634e583b7b2b_h100.png,2
+subgroup,Кисломолочные продукты181,2,/storage/catalog/.thumbs/e3faa462c68ace375e3a4ee0beeebaff_h100.png,2
+subgroup,Йогурты, десерты, творожки, пудинг296,2,/storage/catalog/.thumbs/221700580c1015252ae39e2d16bb0c3f_h100.png,2
+subgroup,Масложировая продукция105,2,/storage/catalog/.thumbs/a7fddbbe95883bc841b800eb27ec01eb_h100.png,2
+subgroup,Творожные изделия165,2,/storage/catalog/.thumbs/130bb5978cc5c3344d06c4a94473e710_h100.png,2
+item, Продукт био-овс Велле густой 140г брусника,2,/storage/catalog/goods/.thumbs/3b1e1bb8f1492deffb1a869d01db95e7_w420h420.png,5772
+item, Продукт био-овсяный Велле густой 140г лесные ягод,2,/storage/catalog/goods/.thumbs/dbdd39be70869398ce872c278e30af8b_w420h420.png,5771
+item, Продукт био-овсяный Велле питьевой 250г облепиха,2,/storage/catalog/goods/.thumbs/5a3c26bc3f568db8361314b39ad80080_w420h420.png,4950
+item, Продукт био-овсяный Велле питьевой 250г черника,2,/storage/catalog/goods/.thumbs/f3c18c70c7fab6e0d29afb245d9ee35c_w420h420.png,4947
+item, Продукт Легкий овсяный коктейль Велле 250г слива,2,/storage/catalog/goods/.thumbs/ba35092bbe393171e9d78b73a8440228_w420h420.png,6109
+item, Продукт Овсянка Велле 180г чернослив,2,/storage/catalog/goods/.thumbs/eeb168ddeda942f4ea56a36f31da401f_w420h420.PNG,18860
+item, Продукт Овсяный завтрак Велле 175г,2,/storage/catalog/goods/.thumbs/cbdbe363c0eaa28b56cc6c5139b2cabf_w420h420.jpg,5756
+item, Продукт Овсяный завтрак Велле 175г малина/ежевика,2,/storage/catalog/goods/.thumbs/5ee913b8ccfa18076f18551012024e8f_w420h420.png,6111
+item, Продукт Овсяный завтрак Велле 175г яблоко печеное,2,/storage/catalog/goods/.thumbs/22cbb790be0d0cdabbc7dd921f19be8b_w420h420.png,5757
+item, Маргарин Домашний 60% 200г фольга,2,/storage/catalog/goods/.thumbs/c04a0dfbf37ba02a0ade8179c25877fa_w420h420.jpg,519
+item, Маргарин Молочный 60% 200г фольга,2,/storage/catalog/goods/.thumbs/5e3ee04babd7dd0f684f43a82c45312d_w420h420.jpg,4743
+item, Маргарин Сливочный 51% 200г пергамент,2,/storage/catalog/goods/.thumbs/0ab00507c1e6bf87949fe8ee84026f41_w420h420.jpg,22898
+item, Маргарин Щедрое лето 72% 1000г фольга,2,/storage/catalog/goods/.thumbs/a187bf3fc4ab6d20dc0b96f7ba5cf913_w420h420.jpg,1465
+item, Маргарин Щедрое лето 72% 500г фольга,2,/storage/catalog/goods/.thumbs/c2c7547a78c98a77ba24974c922d245e_w420h420.jpg,766
+item, Масло сладко-сливочное 180г 72,5% фольга Кунгурский МК,2,/storage/catalog/goods/.thumbs/1e584ca906f7c225389d4dbcb7bb5150_w420h420.jpg,29118
+item, Масло сливочное Гост 200г 72,5%  ПермМолоко,2,/storage/catalog/goods/.thumbs/95efd64c8a7573f6668226b4be034c9d_w420h420.jpg,21453
+item, Масло сливочное Деревенское вес Талицкий МЗ,2,/storage/catalog/goods/.thumbs/8880705022ebcbcfa953df927189e493_w420h420.jpg,3795
+item, Масло сливочное Домик в деревне 180г 72,5% фольга,2,/storage/catalog/goods/.thumbs/15e21fab27b16d4283083452ad01b4a1_w420h420.jpg,4906
+item, Масло сливочное Домик в деревне 180г 82,5% фольга,2,/storage/catalog/goods/.thumbs/d05acf889bcbdd7421a5e3582205624c_w420h420.jpg,28426
+item, Масло сливочное Крестьянское 100г 72,5% в/с фольга Маслодел,2,/storage/catalog/goods/.thumbs/df44b746bab35f941bcaf9e06c4bb4a0_w420h420.jpg,2263
+item, Яйцо С1 Деревенька 10шт,3,/storage/catalog/goods/.thumbs/86c84f07f0481e9b735b4b8253704283_w420h420.jpg,1167
+item, Яйцо С1 Сильное 10шт,3,/storage/catalog/goods/.thumbs/7dd654fe0332ec01492f04c0c65dc596_w420h420.jpg,1130
+item, Яйцо  С1 10шт термопленка Челябинская ПФ,3,/storage/catalog/goods/.thumbs/165a6f4ecebecf96260e1a2c74bd44c8_w420h420.jpg,4427
+item, Яйцо отборное Айсберг 10шт СПФ,3,/storage/catalog/goods/.thumbs/93f75637ecb2dbb57db49d5518bbd86b_w420h420.jpg,1760
+item, Яйцо отборное Гулливер 10шт СПФ,3,/storage/catalog/goods/.thumbs/fe9269c6c9877a20a18e1ccb0086adca_w420h420.jpg,1200
+item, Яйцо перепелиное 18шт пластик,3,/storage/catalog/goods/.thumbs/9c679378c44ebac70babcb79e89ed36a_w420h420.png,20565
+item, Яйцо С0 10шт коричневое Боровская ПФ,3,/storage/catalog/goods/.thumbs/6ddaeadc95b04006be72aa21184083b0_w420h420.jpg,28126
+item, Яйцо С0 10шт Отборное упак Челябинская ПФ,3,/storage/catalog/goods/.thumbs/aee433ad5a4988c060d06ef8298bb38a_w420h420.jpg,12340
+item, Яйцо С0 10шт термопленка ЧелябинскаяПФ,3,/storage/catalog/goods/.thumbs/91b58908dd8d7c5caab665bb61db3e58_w420h420.png,18479
+item, Яйцо С1 10шт ГОСТ фас  Здоровая ферма,3,/storage/catalog/goods/.thumbs/d193bcb6abcbf7099e5da5e0c27b161b_w420h420.jpg,28151
+item, Яйцо С1 10шт Деревенское термопленкаЧелябинская ПФ,3,/storage/catalog/goods/.thumbs/28ee6823f0f1fb1819cef33287b4b895_w420h420.png,20564
+item, Яйцо С1 10шт Деревенское Челябинская ПФ,3,/storage/catalog/goods/.thumbs/5c525e80234d3267158de635c4a66c6c_w420h420.png,18517
+item, Яйцо С1 10шт пл/уп Челябинская ПФ,3,/storage/catalog/goods/.thumbs/7a6cdf28b406b7e6841e4a50b9aba96c_w420h420.jpg,26918
+item, Яйцо С1 15шт Деревенское термопленка Челябинская ПФ,3,/storage/catalog/goods/.thumbs/531c120734eef814afb15a8222b780e1_w420h420.png,20562
+item, Яйцо С1 15шт термопленка Челябинская ПФ,3,/storage/catalog/goods/.thumbs/1b512055d2acef84fd20f6c6f3d528b5_w420h420.png,12116
+item, Яйцо С1 30шт термопленка Челябинская ПФ,3,/storage/catalog/goods/.thumbs/fdc00842b37367996232eaddd0904768_w420h420.jpg,4661
+item, Яйцо С1 Веснушка 10шт коричневое,3,/storage/catalog/goods/.thumbs/b522e0453828dba2ff42d2497dee4db1_w420h420.jpg,1127
+item, Яйцо С1 Дарница 10шт,3,/storage/catalog/goods/.thumbs/4ed108a138a351499e72363308ab1599_w420h420.jpg,1128
+item, Яйцо С1 Деревенька 15шт,3,/storage/catalog/goods/.thumbs/1e7d6b7a06219f709cb2d749021b44e6_w420h420.jpg,1497
+item, Яйцо С1 Свердловское 10шт СПФ,3,/storage/catalog/goods/.thumbs/458c72079a426586d67843b1440f48da_w420h420.jpg,1126
+subgroup,Хлеб, батон, лаваш83,5,/storage/catalog/.thumbs/7a4bd8b855d8645560a0a8cad6a13d6f_h100.jpg,5
+subgroup,Выпечка, кексы33,5,/storage/catalog/.thumbs/ceefdb53b8708b141dec2c7d2de1a27d_h100.jpg,5
+subgroup,Баранки, бублики, сушки, сухари54,5,/storage/catalog/.thumbs/36cbcd9dc10ca6ccaab54bca146f8b6d_h100.jpg,5
+subgroup,Тарталетки5,5,/storage/catalog/.thumbs/d34478353c59121bdc6d10872c46b1d5_h100.jpg,5
+item, Булка Крестьянская 500г  Собственное Производство,5,/storage/catalog/goods/.thumbs/2f4814c1fe2fb1410688ec3a52cad93d_w420h420.JPG,9628
+item, Хлеб Идея Лайт 250г Смак нарезка,5,/storage/catalog/goods/.thumbs/e2659a28a048ec2f2cc0327f8fa924f0_w420h420.png,5834
+item, Хлеб Кайзер 300г формовой (кирпичик) Смак,5,/storage/catalog/goods/.thumbs/a3f50a582bba9705d6be902c08b9d523_w420h420.png,2186
+item, Хлеб Хмелевой  бездрожжевой 400г На Вишневой,5,/storage/catalog/goods/.thumbs/cc5f3bbbd111b69fe36d0731c2d907ef_w420h420.jpg,5423
+item, Баранки маковые 400г Покровскийхлеб  ОАО,5,/storage/catalog/goods/.thumbs/733e5fde6068ab9fb97afa3504d6db80_w420h420.jpg,5334
+item, Баранки с ванилином 400г Покровскийхлеб  ОАО,5,/storage/catalog/goods/.thumbs/44e6e2cd78612590d46a65158b0ce968_w420h420.jpg,5335
+item, Баранки сахарные 400г Покровскийхлеб  ОАО,5,/storage/catalog/goods/.thumbs/10f44a93fff17be6e662fb55ac16cd29_w420h420.jpg,5336
+item, Батон Подмосковный 380г в/с нарезка Смак,5,/storage/catalog/goods/.thumbs/9dde11f6266700a9d680e48dbde3648c_w420h420.png,29585
+item, Кекс Уфимский в/с 500г Баженовский ХК,5,/storage/catalog/goods/.thumbs/cb8ce1c18d95cab7b9604e4d8c541f47_w420h420.JPG,6335
+item, Хлеб Крестьянский 1с 500г формовой Баженовский ХК,5,/storage/catalog/goods/.thumbs/8fb25e476fb97404c8904ddb63dd4d13_w420h420.jpg,14451
+item, Баранка Ванильная 500г Коркинский ХК,5,/storage/catalog/goods/.thumbs/4ce820ba1531cf62931fd234f2472b9d_w420h420.jpg,27965
+item, Баранка Ванильное солнце 300г Завод Алешина,5,/storage/catalog/goods/.thumbs/d528f669f9327f3ac324cd4a2c37221c_w420h420.jpg,28478
+item, Баранка с Сахаром и маком 500г Коркинский ХК,5,/storage/catalog/goods/.thumbs/17f3129e13ccb11cfd30f64dbebc5c85_w420h420.png,27979
+item, Баранка с Топленым молоком 500г Коркинский ХК,5,/storage/catalog/goods/.thumbs/fe96174ba6f75ca85f99acae3da06627_w420h420.jpg,27985
+item, Баранка Чайная с маком 300г Завод Алешина,5,/storage/catalog/goods/.thumbs/0f8568ebaa64cae18233c178dd05b4d7_w420h420.jpg,28479
+item, Баранка Яичная 500г Коркинский ХК,5,/storage/catalog/goods/.thumbs/0aea63726714a70357c69a5a25958444_w420h420.png,27980
+item, Батон Малаховский с отрубями 260г На Вишневой,5,/storage/catalog/goods/.thumbs/3d20a1101daae449256ef45044065216_w420h420.jpg,4388
+item, Батон Молочный 300г Смак,5,/storage/catalog/goods/.thumbs/986c9143adca80bfa482a2e247fd09d3_w420h420.jpg,26898
+item, Батон Нарезной 1с 330г Смак,5,/storage/catalog/goods/.thumbs/443f955734fe19a2e880ffbe74eeef35_w420h420.png,1522
+item, Батон Нарезной в/с 300г нарезка  Сысертский ХК,5,/storage/catalog/goods/.thumbs/472294ce2a8cc4a91585cf9a262f10f3_w420h420.jpg,5048
+subgroup,Фрукты39,6,/storage/catalog/.thumbs/e4d100abf7be09546c7060d679cd41f1_h100.jpg,6
+subgroup,Овощи45,6,/storage/catalog/.thumbs/45200eb51bd64636276677bbdba66e69_h100.jpg,6
+subgroup,Зелень, салаты26,6,/storage/catalog/.thumbs/dc37b10573e635d933c156b18a2b695d_h100.jpg,6
+subgroup,Грибы6,6,/storage/catalog/.thumbs/7de9f61be155c8ca481481c2cf20b357_h100.jpg,6
+subgroup,Орехи, сухофрукты145,6,/storage/catalog/.thumbs/78ef66e79624fe42267fb2229f0f20ac_h100.jpg,6
+item, Сельдерей  стебель вес,6,/storage/catalog/goods/.thumbs/78711fb4eb5df6a383dc7a7c27546164_w420h420.jpg,1193
+item, Апельсины вес,6,/storage/catalog/goods/.thumbs/60ebaed5edc1542ecefa61c415185f56_w420h420.jpg,672
+item, Лимоны вес,6,/storage/catalog/goods/.thumbs/3f4a99feaab08f0fd73dbfda1d0b4a54_w420h420.jpg,1138
+item, Ядро Арахиса вес,6,/storage/catalog/goods/.thumbs/8628555f6ca20cc77620c7696f17b34f_w420h420.jpg,1804
+item, Баклажаны вес,6,/storage/catalog/goods/.thumbs/ed352c26f17ddeca7b89fbe4dc1f97bd_w420h420.jpg,1597
+item, Грибы Шампиньоны свежие 250г,6,/storage/catalog/goods/.thumbs/707e819db5c3fc841ab87ab610391776_w420h420.jpg,3565
+item, Грибы Шампиньоны свежие 500г коррекс Держава,6,/storage/catalog/goods/.thumbs/190baab495cdbecaf57ea7e9505c550f_w420h420.jpg,2018
+item, Грибы Шампиньоны свежие вес,6,/storage/catalog/goods/.thumbs/846e17f2496e84ea0bba24069e2cc4aa_w420h420.jpg,767
+item, Имбирь корень вес,6,/storage/catalog/goods/.thumbs/72d867ab6f08d754f5eb972a7593f6e6_w420h420.jpg,2243
+item, Кабачок вес,6,/storage/catalog/goods/.thumbs/1d016044939dcb69cd1e453e3cc8e8a5_w420h420.png,8471
+item, Капуста краснокочанная вес,6,/storage/catalog/goods/.thumbs/f08827317f6d4ac2ada51c75c48aefd9_w420h420.jpg,20739
+item, Капуста Савойская вес,6,/storage/catalog/goods/.thumbs/710e9b8c7b981a4892d611e93243c212_w420h420.jpg,2665
+item, Капуста цветная вес,6,/storage/catalog/goods/.thumbs/1fdaf367cfdcb65a9137e9efb9fc6c57_w420h420.jpg,1044
+item, Картофель мытый фасованный 2кг Белореченский АПК,6,/storage/catalog/goods/.thumbs/10f2f23ebce768608d965ad66eaba295_w420h420.jpg,15810
+item, Картофель фасованный вес Белореченский АПК,6,/storage/catalog/goods/.thumbs/58f08c213a6d426dc9866d0b0f3ac73b_w420h420.jpg,15809
+item, Кукуруза в початках Свой огород  450г в/у,6,/storage/catalog/goods/.thumbs/3c88fd76a2d12b809ccb6f00f47f3e01_w420h420.jpg,22662
+item, Лук порей вес,6,/storage/catalog/goods/.thumbs/ca9292cd7e6bc0444e2e61f138f32c7f_w420h420.jpg,1661
+item, Лук репчатый белый вес,6,/storage/catalog/goods/.thumbs/64e1b69f3e4b495e7c0ed5765d7b3cf1_w420h420.jpg,8261
+item, Лук репчатый красный вес,6,/storage/catalog/goods/.thumbs/1d998d6240ae41d9abbcb32125b37964_w420h420.jpg,825
+item, Морковь  мытая фасованная 1кг Белореченский АПК,6,/storage/catalog/goods/.thumbs/e7b2f3206b9920680b8692995cd0fcee_w420h420.jpg,15811
+subgroup,Сладкие напитки211,7,/storage/catalog/.thumbs/97fecf48aee018604745378a7177f582_h100.jpg,7
+subgroup,Минеральные и питьевые воды108,7,/storage/catalog/.thumbs/7a2ebfa3e9854b0ba1c00d09aa5b2109_h100.jpg,7
+subgroup,Соки, нектары, морсы, компоты224,7,/storage/catalog/.thumbs/5f493aa60bbffc4ec80ff914c99e33dc_h100.jpg,7
+subgroup,Энергетические напитки24,7,/storage/catalog/.thumbs/89723eaa6e966c03abc41700a26877f0_h100.jpg,7
+item, Вода газированная Кока-Кола 1л,7,/storage/catalog/goods/.thumbs/4c0be2d880e16840d32e32b575a7b958_w420h420.png,276
+item, Вода газ Министерство газировки 0,5л Байкальский дар,7,/storage/catalog/goods/.thumbs/1956ef03a7573c6fb2b795056a6f03df_w420h420.jpg,32339
+item, Вода газированная  Министерство газировки 0,5л Дюшес,7,/storage/catalog/goods/.thumbs/11cc6967e17f385fbc321d8f5b2a71b8_w420h420.jpg,6067
+item, Вода газированная 7 Ап 2,25л,7,/storage/catalog/goods/.thumbs/b850385a7ce6fc63a6093647749e6616_w420h420.jpg,6727
+item, Вода газированная Аскания 0,33л Вишня пэт,7,/storage/catalog/goods/.thumbs/abd1080f10ba08238086e220dd677162_w420h420.png,5862
+item, Вода газированная Аскания 0,33л Клубника с мякотью пэт,7,/storage/catalog/goods/.thumbs/eb646b9b754b7000611f49a7670ce1ae_w420h420.png,5861
+item, Вода газированная Аскания 0,33л Лайм мята пэт,7,/storage/catalog/goods/.thumbs/fde121b60ea966197813f60615563623_w420h420.png,5863
+item, Вода газированная Аскания 0,33л Тархун пэт,7,/storage/catalog/goods/.thumbs/291509710ac9e07069786cc61fcfcf64_w420h420.png,31315
+item, Вода газированная Аскания 0,37л Груша пэт,7,/storage/catalog/goods/.thumbs/64e0870e212917f8962888e8d551d99e_w420h420.png,5904
+item, Вода газированная Аскания 0,5л Вишня,7,/storage/catalog/goods/.thumbs/26f35773b5e5d6ba8f865b506dbf87ca_w420h420.jpg,5860
+item, Вода газированная Аскания 0,5л Груша,7,/storage/catalog/goods/.thumbs/ab1e2b5d1c4a049400c9e2f73a195a22_w420h420.jpg,5857
+item, Вода газированная Аскания 0,5л Клубника с мякотью,7,/storage/catalog/goods/.thumbs/840c2dbe11e69610c2bc6958c1b619e3_w420h420.jpg,5856
+item, Вода газированная Аскания 0,5л Лайм мята,7,/storage/catalog/goods/.thumbs/752c8222bb492df8861458cb79be48b4_w420h420.jpg,5858
+item, Вода газированная Аскания 0,5л Тархун,7,/storage/catalog/goods/.thumbs/e41a429a8b3aacb4d50458d91fe6abe8_w420h420.jpg,5905
+item, Вода газированная Кока-Кола 2л,7,/storage/catalog/goods/.thumbs/bc203faa66c65193c85808e047f3190c_w420h420.png,277
+item, Вода газированная Министерство газировки 0,5л Апельсин,7,/storage/catalog/goods/.thumbs/c8e8bb9e9fb8f94249324d36415311e2_w420h420.jpg,32338
+item, Вода газированная Министерство газировки 0,5л Лимонад,7,/storage/catalog/goods/.thumbs/76761f971bf58256362cc133579a5610_w420h420.jpg,6066
+item, Вода газированная Министерство газировки 0,5л Тархун,7,/storage/catalog/goods/.thumbs/5010115bc553f1da798f7a8ea2cb5631_w420h420.jpg,6064
+item, Вода газированная Министерство газировки 1л Апельсин,7,/storage/catalog/goods/.thumbs/064ad81bdcc8f1cb9631166de8cecf67_w420h420.png,33597
+item, Вода газированная Министерство газировки 1л Байкальский дар,7,/storage/catalog/goods/.thumbs/01390b09c7ce3b1c7a6b3da2e2737a12_w420h420.png,33598
+subgroup,Азиатская кухня69,8,/storage/catalog/.thumbs/679f8ed2d30040160c32d03345258f29_h100.jpg,8
+subgroup,Крупы200,8,/storage/catalog/.thumbs/debfbb807c7d99e3b2b3019f75178162_h100.jpg,8
+subgroup,Макаронные изделия142,8,/storage/catalog/.thumbs/a924fba9ff79fef61b16c41098b424be_h100.jpg,8
+subgroup,Масла растительные61,8,/storage/catalog/.thumbs/f03064e4eb616cca0c2898d23d77b191_h100.jpg,8
+subgroup,Мука и смеси для выпечки43,8,/storage/catalog/.thumbs/499024e77eadea81f03f5f81ea79e8eb_h100.jpg,8
+subgroup,Продукты быстрого приготовления144,8,/storage/catalog/.thumbs/c5b40ce3792b9f621fbe931cfbcd94cd_h100.jpg,8
+subgroup,Сахар, соль47,8,/storage/catalog/.thumbs/9671fdf999f1b174f388151b6e868a83_h100.jpg,8
+subgroup,Сухие завтраки, каши, хлопья, попкорн79,8,/storage/catalog/.thumbs/141e2ae0a2fcc73c33e43532d44f67a2_h100.jpg,8
+subgroup,Чипсы, сухарики, снеки154,8,/storage/catalog/.thumbs/f61f6f1c9b95df5f8d16c111c1f6a4e7_h100.jpg,8
+subgroup,Кисель, желе, сухое молоко52,8,/storage/catalog/.thumbs/458d59933384a2f15f9eae4988fc2af4_h100.jpg,8
+item, Масло Олейна 1л подсолнечное+оливковое рафинированное,8,/storage/catalog/goods/.thumbs/df9f6aa99de78b6a50bba4969e7051ec_w420h420.jpg,19135
+item, Масло подсолнечная Золотая семечка 1л рафинированное,8,/storage/catalog/goods/.thumbs/d1c6b1269459beab6ad9f174cf4d1239_w420h420.jpg,647
+item, Масло подсолнечное Аведовъ 0,5л оливковый микс,8,/storage/catalog/goods/.thumbs/568492ccfd7992e1dd9e60cafad569ff_w420h420.jpg,3119
+item, Масло подсолнечное Аведовъ 0,5л рафинированное,8,/storage/catalog/goods/.thumbs/6182f1aed96cc0ee7c1fef398ab02769_w420h420.jpg,2181
+item, Масло подсолнечное Аведовъ 1л  рафинированное,8,/storage/catalog/goods/.thumbs/80f4a5239f33985d92ac48e48fdffc5c_w420h420.jpg,457
+item, Масло подсолнечное Аведовъ 1л оливковый микс,8,/storage/catalog/goods/.thumbs/210f0756f8c92b90dcfca1460dfa6839_w420h420.jpg,1604
+item, Масло подсолнечное Аннинское 0,9л рафинированное,8,/storage/catalog/goods/.thumbs/875887c830ec64932fe065ed91db7d0d_w420h420.jpg,4962
+item, Масло подсолнечное Идеал 1л рафинированное,8,/storage/catalog/goods/.thumbs/ace4fe905fd29479b34907e42721be74_w420h420.jpg,459
+item, Масло подсолнечное Масленица 1л рафинированное,8,/storage/catalog/goods/.thumbs/f2c7a646dd8e804a5960918f2b0f37a0_w420h420.jpg,4864
+item, Масло подсолнечное Слобода 1л  рафиниррованное,8,/storage/catalog/goods/.thumbs/6ef6c5bc41099b6f4cbe1fac4dba7595_w420h420.jpg,456
+item, Масло подсолнечное Слобода 1л н/рафинированное,8,/storage/catalog/goods/.thumbs/5d95b28ea42e51c493f707d8ce52cb84_w420h420.jpg,6298
+item, Масло подсолнечное Щедрое лето 0,9л рафинированное,8,/storage/catalog/goods/.thumbs/cc7ced8cde44e20de7fa08a94d289cc8_w420h420.jpg,25744
+item, Масло подсолнечное Янтарная семечка 0,3л н/рафинированное,8,/storage/catalog/goods/.thumbs/b8ca773988b5503e61e296f5ebb0dc38_w420h420.jpg,3243
+item, Масло подсолнечное Янтарная семечка 0,8л н/рафинированное,8,/storage/catalog/goods/.thumbs/5470a6c7c8057eb560319cfa722dcf76_w420h420.jpg,4391
+item, Мука Беляевская в/с ГОСТ 2кг,8,/storage/catalog/goods/.thumbs/dc73f6022ca58de51985c3c1e3996f41_w420h420.jpg,26819
+item, Мука Главхлеб в/с 2 кг,8,/storage/catalog/goods/.thumbs/b46e2373df7d06918d35a1fef8372842_w420h420.jpg,6975
+item, Мука Увелка в/с 1кг,8,/storage/catalog/goods/.thumbs/1d23869df14f05c7838d2f92bb4655bd_w420h420.jpg,626
+item, Мука Увелка в/с 2кг,8,/storage/catalog/goods/.thumbs/a8c774b359a484aa28212d9bbeb96cb3_w420h420.jpg,627
+item, Смесь Блинчики русские 500г Увелка,8,/storage/catalog/goods/.thumbs/bf061c78c935851f6f4394fe2cf33da2_w420h420.jpg,782
+item, Смесь Оладьи по-домашнему 1кг Увелка,8,/storage/catalog/goods/.thumbs/bfdf851badaeda7b79db7731b5c2fd89_w420h420.jpg,901

@@ -3,47 +3,51 @@ require 'mechanize'
 # class search and save catalog in file
 class Sniffer
   URL = 'http://www.a-yabloko.ru/catalog/'.freeze
+  Stats_amount = 1000.freeze
 
   def initialize
     @results = []
     @page = Mechanize.new
-    @page.history_added = proc { sleep 0.5 }
-    groups_list
+    #@page.history_added = proc { sleep 0.5 }
+    groups_lists
 
     # statistics
     @counter = 0
     @group_info = {}
-    @coef_image = 0.0
-    @images = []
+    @no_image_items = 0.0
+    @images_sizes = []
   end
 
-  def groups_list
+  def groups_lists
     @page.get(URL).search('.sc-desktop table').each do |page|
-      @group = page.css('.root').map { |link| group_id(link) }.sort.unshift('')
-      @subgroup = page.css('.ch a').map { |link| group_id(link) }.sort
+      @group_ids = page.css('.root').map { |link| group_id(link) }.sort.unshift('')
+      @subgroup_ids = page.css('.ch a').map { |link| group_id(link) }.sort
     end
   end
 
   def parse
-    @group.each { |group| sniff(resourse: group) }
-    @subgroup.each { |subgroup| sniff(resourse: subgroup) }
+    (@group_ids + @subgroup_ids).each do |page_id|
+      break if @counter > Stats_amount
+      sniff(id: page_id)
+    end
     save_info
   end
 
-  def sniff(resourse: '')
-    @page.get(URL + resourse.to_s) do |page|
+  def sniff(id: '')
+    @page.get(URL + id.to_s) do |page|
       # группы и подгруппы
       page.css('div.children a').map do |row|
-        @results << "#{data_type(group_id(row))},#{row.text},#{resourse},#{image_url(row)},#{resourse}"
-        @page.get(image_url(row)).save "./#{image_url(row)}"
-        analyze(image_url(row), resourse)
+        image = image_url(row)
+        @results << "#{data_type(group_id(row))},#{row.text},#{id},#{image},#{id}"
+        @page.get(image).save "./#{image}"
       end
       # товары (не собираем товары с главной страницы)
-      if resourse != ''
+      if id != ''
         page.css('.goods .item a.img').map do |row|
-          @results << "item,#{row['title']},#{resourse},#{row['rel']},#{item_id(row, resourse)}"
-          @page.get(row['rel']).save "./#{row['rel']}"
-          analyze(row['rel'], resourse)
+          image = row['rel']
+          @results << "item,#{row['title']},#{id},#{image},#{item_id(row, id)}"
+          @page.get(image).save "./#{image}"
+          analyze(image, id)
         end
       end
     end
@@ -51,48 +55,42 @@ class Sniffer
 
   protected
 
-  def analyze(image, resourse)
+  def analyze(image, id)
     @counter += 1
-    print '.'
-    @coef_image += 1 if image == ''
-    image_size = @page.get(image).response['content-length'].to_i if image != ''
-    @images << image_size
+    @no_image_items += 1 if image == ''
+    @images_sizes << File.size(image.sub('/', '')).to_f / 1000 if image != ''
+    @group_info[id].nil? ? @group_info[id] = 1 : @group_info[id] += 1
+    print_stats if (@counter % Stats_amount) == 0
+  end
 
-    if @group_info[resourse].nil?
-      @group_info[resourse] = 1
-    else
-      @group_info[resourse] += 1
-    end
-
-    if (@counter % 1000) == 0
-      p "#{@counter} сущностей обработано"
-      p @group_info
-      p "#{1.00 * 100.0 - @coef_image.to_f / @counter.to_f * 100.0}% товаров у которых присутствовало изображение"
-      p "#{@images.min}KB минимальный размер картинки"
-      p "#{@images.max}KB максимальный размер картинки"
-      p "#{@images.reduce(:+) / @images.size.to_f}KB средний размер картинки"
-    end
+  def print_stats
+    p "#{@counter} товаров обработано"
+    p @group_info
+    p "#{100.0 - @no_image_items.to_f / @counter.to_f * 100.0}% товаров имеют изображение"
+    p "#{@images_sizes.min}KB минимальный размер картинки"
+    p "#{@images_sizes.max}KB максимальный размер картинки"
+    p "#{@images_sizes.reduce(:+) / @images_sizes.size.to_f}KB средний размер картинки"
   end
 
   def group_id(link)
-    link['href'].gsub('/catalog/', '').to_i
+    link['href'].sub('/catalog/', '').to_i
   end
 
-  def item_id(row, resourse)
-    row['href'].gsub("/catalog/#{resourse}/goods/", '').to_i
+  def item_id(row, id)
+    row['href'].sub("/catalog/#{id}/goods/", '').to_i
   end
 
   def image_url(row)
-    row['style'].gsub('background-image:url(', '').chop!
+    row['style'].sub('background-image:url(', '').chop!
   end
 
-  def data_type(resourse)
-    @group.include?(resourse) ? 'group' : 'subgroup'
+  def data_type(id)
+    @group_ids.include?(id) ? 'group' : 'subgroup'
   end
-
 
   def save_info
-    File.open('test.txt', 'w+') { |f| f.puts(@results) }
+    File.open('catalog.txt', 'w+') { |f| f.puts(@results) }
   end
 end
-Sniffer.new.parse
+a = Sniffer.new
+a.parse
