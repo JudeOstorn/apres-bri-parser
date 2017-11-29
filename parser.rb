@@ -2,10 +2,8 @@ require 'mechanize'
 require 'csv'
 
 # 1. max/min размер картинки и ИМЯ товара
-# 2. все эти {row['title'], item_id(row, id) выглядят не очень, почему бы не создать класс для каждой сущности и пусть он содержит метод #to_csv
-#  @results << Product.new(...).to_csv
-# 3. выход из цикла если @counter == 1000
-# 4. запись в файл без перезаписи, а лишь дополнением
+# 2. выход из цикла если @counter == 1000
+# 3. запись в файл без перезаписи, а лишь дополнением
 
 # class item, group and subgroup
 class Entity
@@ -77,8 +75,6 @@ class Sniffer
 
   def take_groups(page, id)
     page.css('div.children a').map do |row|
-      #@results << "#{data_type(group_id(row))},#{row.text},#{id},#{image},#{id}"
-      #@results << [group.type, group.name, group.group_id, group.image_url, group.id].to_csv
       group = Group.new(row, id, data_type(id))
       @results << group.entity_info
       @page.get(group.image_url).save "./#{group.image_url}"
@@ -121,7 +117,11 @@ class Sniffer
   end
 
   def save_info
-    File.open('catalog.txt', 'w+') { |f| f << @results }
+    File.open('catalog.txt', 'w+') do |f|
+      if f != @results
+        f.puts(@results)
+      end
+    end
   end
 end
 Sniffer.new.parse
