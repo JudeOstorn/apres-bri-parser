@@ -1,14 +1,51 @@
 require 'mechanize'
+require 'csv'
+
+# 1. max/min размер картинки и ИМЯ товара
+# 2. все эти {row['title'], item_id(row, id) выглядят не очень, почему бы не создать класс для каждой сущности и пусть он содержит метод #to_csv
+#  @results << Product.new(...).to_csv
+# 3. выход из цикла если @counter == 1000
+# 4. запись в файл без перезаписи, а лишь дополнением
+
+# class item, group and subgroup
+class Entity
+  def entity_info
+    [self.type, self.name, self.group_id, self.image_url, self.id].to_csv
+  end
+end
+
+# class group
+class Group < Entity
+  attr_accessor(:type, :name, :group_id, :image_url, :id)
+  def initialize (row, id, data_type)
+    @type = data_type
+    @name = row.text
+    @group_id = row['href'].sub('/catalog/', '').to_i
+    @image_url = row['style'].sub('background-image:url(', '').chop!
+    @id = row['href'].sub("/catalog/#{id}/goods/", '').to_i
+  end
+end
+
+# class item
+class Item < Entity
+  attr_accessor(:type, :name, :group_id, :image_url, :id)
+  def initialize (row, id)
+    @type = 'item'
+    @name = row['title']
+    @group_id = id
+    @image_url = row['rel']
+    @id = row['href'].sub("/catalog/#{id}/goods/", '').to_i
+  end
+end
 
 # class search and save catalog in file
 class Sniffer
   URL = 'http://www.a-yabloko.ru/catalog/'.freeze
-  Stats_amount = 1000.freeze
+  STATS_AMOUNT = 10
 
   def initialize
     @results = []
     @page = Mechanize.new
-    #@page.history_added = proc { sleep 0.5 }
     groups_lists
 
     # statistics
@@ -26,41 +63,44 @@ class Sniffer
   end
 
   def parse
-    (@group_ids + @subgroup_ids).each do |page_id|
-      break if @counter > Stats_amount
-      sniff(id: page_id)
-    end
-    save_info
-  end
+    (@group_ids + @subgroup_ids).each do |id|
+      break if @counter > STATS_AMOUNT
 
-  def sniff(id: '')
-    @page.get(URL + id.to_s) do |page|
-      # группы и подгруппы
-      page.css('div.children a').map do |row|
-        image = image_url(row)
-        @results << "#{data_type(group_id(row))},#{row.text},#{id},#{image},#{id}"
-        @page.get(image).save "./#{image}"
+      @page.get(URL + id.to_s) do |page|
+        take_groups(page, id)
+        take_items(page, id) if id != ''
       end
-      # товары (не собираем товары с главной страницы)
-      if id != ''
-        page.css('.goods .item a.img').map do |row|
-          image = row['rel']
-          @results << "item,#{row['title']},#{id},#{image},#{item_id(row, id)}"
-          @page.get(image).save "./#{image}"
-          analyze(image, id)
-        end
-      end
+
+      save_info
     end
   end
 
-  protected
+  def take_groups(page, id)
+    page.css('div.children a').map do |row|
+      #@results << "#{data_type(group_id(row))},#{row.text},#{id},#{image},#{id}"
+      #@results << [group.type, group.name, group.group_id, group.image_url, group.id].to_csv
+      group = Group.new(row, id, data_type(id))
+      @results << group.entity_info
+      @page.get(group.image_url).save "./#{group.image_url}"
+    end
+  end
+
+  def take_items(page, id)
+    # не собираем товары с главной страницы
+    page.css('.goods .item a.img').map do |row|
+      item = Item.new(row, id)
+      @results << item.entity_info
+      @page.get(item.image_url).save "./#{item.image_url}"
+      analyze(item.image_url, id)
+    end
+  end
 
   def analyze(image, id)
     @counter += 1
     @no_image_items += 1 if image == ''
     @images_sizes << File.size(image.sub('/', '')).to_f / 1000 if image != ''
     @group_info[id].nil? ? @group_info[id] = 1 : @group_info[id] += 1
-    print_stats if (@counter % Stats_amount) == 0
+    print_stats if (@counter % STATS_AMOUNT) == 0
   end
 
   def print_stats
@@ -72,25 +112,16 @@ class Sniffer
     p "#{@images_sizes.reduce(:+) / @images_sizes.size.to_f}KB средний размер картинки"
   end
 
-  def group_id(link)
-    link['href'].sub('/catalog/', '').to_i
-  end
-
-  def item_id(row, id)
-    row['href'].sub("/catalog/#{id}/goods/", '').to_i
-  end
-
-  def image_url(row)
-    row['style'].sub('background-image:url(', '').chop!
-  end
-
   def data_type(id)
     @group_ids.include?(id) ? 'group' : 'subgroup'
   end
 
+  def group_id(link)
+    link['href'].sub('/catalog/', '').to_i
+  end
+
   def save_info
-    File.open('catalog.txt', 'w+') { |f| f.puts(@results) }
+    File.open('catalog.txt', 'w+') { |f| f << @results }
   end
 end
-a = Sniffer.new
-a.parse
+Sniffer.new.parse
