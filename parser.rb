@@ -1,8 +1,8 @@
 require 'mechanize'
 require 'csv'
 
-# 1. max/min размер картинки и ИМЯ товара
-# 2. выход из цикла если @counter == 1000
+# 1. проценты содержимого в группах
+# 2. выход из цикла если @counter == 1000 (логика приложения)
 # 3. запись в файл без перезаписи, а лишь дополнением
 
 # class item, group and subgroup
@@ -39,7 +39,7 @@ end
 # class search and save catalog in file
 class Sniffer
   URL = 'http://www.a-yabloko.ru/catalog/'.freeze
-  STATS_AMOUNT = 10
+  STATS_AMOUNT = 100
 
   def initialize
     @results = []
@@ -50,7 +50,11 @@ class Sniffer
     @counter = 0
     @group_info = {}
     @no_image_items = 0.0
+
+    #размеры изображений мать их
     @images_sizes = []
+    @max_image_size = [0, '']
+    @min_image_size = [0, '']
   end
 
   def groups_lists
@@ -62,11 +66,11 @@ class Sniffer
 
   def parse
     (@group_ids + @subgroup_ids).each do |id|
-      break if @counter > STATS_AMOUNT
+      break if @counter > STATS_AMOUNT   # а вот это до сих пор не работает Т_Т
 
       @page.get(URL + id.to_s) do |page|
+        take_items(page, id) if id != '' # не собираем товары с главной страницы
         take_groups(page, id)
-        take_items(page, id) if id != ''
       end
 
       save_info
@@ -82,29 +86,38 @@ class Sniffer
   end
 
   def take_items(page, id)
-    # не собираем товары с главной страницы
     page.css('.goods .item a.img').map do |row|
       item = Item.new(row, id)
       @results << item.entity_info
       @page.get(item.image_url).save "./#{item.image_url}"
-      analyze(item.image_url, id)
+      analyze(item.image_url, id, item.name)
     end
   end
 
-  def analyze(image, id)
+  def analyze(image, id, item_name)
     @counter += 1
-    @no_image_items += 1 if image == ''
-    @images_sizes << File.size(image.sub('/', '')).to_f / 1000 if image != ''
+    if image != ''
+      @no_image_items += 1
+      image_sizes(image, item_name)
+    end
     @group_info[id].nil? ? @group_info[id] = 1 : @group_info[id] += 1
     print_stats if (@counter % STATS_AMOUNT) == 0
   end
 
+  def image_sizes(image, item_name)
+    @images_sizes << img_size = File.size(image.sub('/', '')).to_f / 1000 # byte : 1000 = kb
+    @max_image_size = [img_size, item_name] if img_size >= @images_sizes.max
+    @min_image_size = [img_size, item_name] if img_size <= @images_sizes.min
+  end
+
   def print_stats
     p "#{@counter} товаров обработано"
-    p @group_info
+
+    p @group_info # сцук. вот тут ещё надо процентики выводить. окей. попробуем отдельный метод который будет делать соответсвия и выдавать проценты.
+
     p "#{100.0 - @no_image_items.to_f / @counter.to_f * 100.0}% товаров имеют изображение"
-    p "#{@images_sizes.min}KB минимальный размер картинки"
-    p "#{@images_sizes.max}KB максимальный размер картинки"
+    p "#{@min_image_size}KB минимальный размер картинки"
+    p "#{@max_image_size}KB максимальный размер картинки"
     p "#{@images_sizes.reduce(:+) / @images_sizes.size.to_f}KB средний размер картинки"
   end
 
