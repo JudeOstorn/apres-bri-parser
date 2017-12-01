@@ -1,9 +1,8 @@
 require 'mechanize'
 require 'csv'
 
-# 1. проценты содержимого в группах
+# 1. запись в файл без перезаписи, а лишь дополнением
 # 2. выход из цикла если @counter == 1000 (логика приложения)
-# 3. запись в файл без перезаписи, а лишь дополнением
 
 # class item, group and subgroup
 class Entity
@@ -44,6 +43,10 @@ class Sniffer
   def initialize
     @results = []
     @page = Mechanize.new
+
+    #groups map
+    @group_ids = {}
+    @subgroup_ids = {}
     groups_lists
 
     # statistics
@@ -51,7 +54,7 @@ class Sniffer
     @group_info = {}
     @no_image_items = 0.0
 
-    #размеры изображений мать их
+    #размеры изображений
     @images_sizes = []
     @max_image_size = [0, '']
     @min_image_size = [0, '']
@@ -59,17 +62,17 @@ class Sniffer
 
   def groups_lists
     @page.get(URL).search('.sc-desktop table').each do |page|
-      @group_ids = page.css('.root').map { |link| group_id(link) }.sort.unshift('')
-      @subgroup_ids = page.css('.ch a').map { |link| group_id(link) }.sort
+      page.css('.root').map { |link| @group_ids[group_id(link)] = link.text }
+      page.css('.ch a').map { |link| @subgroup_ids[group_id(link)] = link.text }
     end
   end
 
   def parse
-    (@group_ids + @subgroup_ids).each do |id|
+    (@group_ids.keys + @subgroup_ids.keys).sort.each do |id|
       break if @counter > STATS_AMOUNT   # а вот это до сих пор не работает Т_Т
 
       @page.get(URL + id.to_s) do |page|
-        take_items(page, id) if id != '' # не собираем товары с главной страницы
+        take_items(page, id)
         take_groups(page, id)
       end
 
@@ -112,17 +115,22 @@ class Sniffer
 
   def print_stats
     p "#{@counter} товаров обработано"
-
-    p @group_info # сцук. вот тут ещё надо процентики выводить. окей. попробуем отдельный метод который будет делать соответсвия и выдавать проценты.
-
-    p "#{100.0 - @no_image_items.to_f / @counter.to_f * 100.0}% товаров имеют изображение"
-    p "#{@min_image_size}KB минимальный размер картинки"
-    p "#{@max_image_size}KB максимальный размер картинки"
+    groups_info
+    p "#{@no_image_items.to_f / @counter.to_f * 100.0}% товаров имеют изображение"
+    p "#{@min_image_size[0]}KB минимальный размер картинки #{@min_image_size[1]}"
+    p "#{@max_image_size[0]}KB максимальный размер картинки #{@max_image_size[1]}"
     p "#{@images_sizes.reduce(:+) / @images_sizes.size.to_f}KB средний размер картинки"
   end
 
+  def groups_info
+    ids = @group_ids.merge(@subgroup_ids)
+    b = 0
+    @group_info.values.map {|a| b += a}
+    @group_info.keys.sort.map { |k| p "#{ids[k]} - #{@group_info[k]} товаров, это - #{@group_info[k] / b.to_f * 100.0 }%"  }
+  end
+
   def data_type(id)
-    @group_ids.include?(id) ? 'group' : 'subgroup'
+    @group_ids.keys.include?(id) ? 'group' : 'subgroup'
   end
 
   def group_id(link)
@@ -130,7 +138,7 @@ class Sniffer
   end
 
   def save_info
-    File.open('catalog.txt', 'w+') do |f|
+    File.open('catalog.txt', 'a+') do |f|
       if f != @results
         f.puts(@results)
       end
