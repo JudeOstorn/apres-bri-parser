@@ -38,11 +38,14 @@ end
 # class search and save catalog in file
 class Sniffer
   URL = 'http://www.a-yabloko.ru/catalog/'.freeze
-  STATS_AMOUNT = 100
+  STATS_AMOUNT = 10
+  FILE_NAME = 'catalog.txt'.freeze
 
   def initialize
-    @results = []
     @page = Mechanize.new
+    @results = []
+    @post_result = []
+    create_file
 
     #groups map
     @group_ids = {}
@@ -68,6 +71,7 @@ class Sniffer
   end
 
   def parse
+    create_file
     (@group_ids.keys + @subgroup_ids.keys).sort.each do |id|
       break if @counter > STATS_AMOUNT   # а вот это до сих пор не работает Т_Т
 
@@ -75,16 +79,7 @@ class Sniffer
         take_items(page, id)
         take_groups(page, id)
       end
-
-      save_info
-    end
-  end
-
-  def take_groups(page, id)
-    page.css('div.children a').map do |row|
-      group = Group.new(row, id, data_type(id))
-      @results << group.entity_info
-      @page.get(group.image_url).save "./#{group.image_url}"
+      save_to_file
     end
   end
 
@@ -94,6 +89,14 @@ class Sniffer
       @results << item.entity_info
       @page.get(item.image_url).save "./#{item.image_url}"
       analyze(item.image_url, id, item.name)
+    end
+  end
+
+  def take_groups(page, id)
+    page.css('div.children a').map do |row|
+      group = Group.new(row, id, data_type(id))
+      @results << group.entity_info
+      @page.get(group.image_url).save "./#{group.image_url}"
     end
   end
 
@@ -137,11 +140,16 @@ class Sniffer
     link['href'].sub('/catalog/', '').to_i
   end
 
-  def save_info
-    File.open('catalog.txt', 'a+') do |f|
-      if f != @results
-        f.puts(@results)
-      end
+  def save_to_file
+    File.open(FILE_NAME, 'a+') do |f|
+      f.puts (@results - @post_result)
+     end
+  end
+
+  def create_file
+    if !File.file? FILE_NAME
+      @file = File.open(FILE_NAME)
+        @file.each_line {|line| @post_result << line}
     end
   end
 end
