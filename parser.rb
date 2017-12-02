@@ -4,14 +4,14 @@ require 'csv'
 # class item, group and subgroup
 class Entity
   def entity_info
-    [self.type, self.name, self.group_id, self.image_url, self.id].to_csv
+    [type, name, group_id, image_url, id].to_csv
   end
 end
 
 # class group
 class Group < Entity
   attr_accessor(:type, :name, :group_id, :image_url, :id)
-  def initialize (row, id, data_type)
+  def initialize(row, id, data_type)
     @type = data_type
     @name = row.text
     @group_id = row['href'].sub('/catalog/', '').to_i
@@ -23,7 +23,7 @@ end
 # class item
 class Item < Entity
   attr_accessor(:type, :name, :group_id, :image_url, :id)
-  def initialize (row, id)
+  def initialize(row, id)
     @type = 'item'
     @name = row['title']
     @group_id = id
@@ -44,7 +44,7 @@ class Sniffer
     @post_result = []
     create_file
 
-    #groups map
+    # groups
     @group_ids = {}
     @subgroup_ids = {}
     groups_lists
@@ -53,8 +53,6 @@ class Sniffer
     @counter = 0
     @group_info = {}
     @no_image_items = 0.0
-
-    #размеры изображений
     @images_sizes = []
     @max_image_size = [0, '']
     @min_image_size = [0, '']
@@ -77,7 +75,7 @@ class Sniffer
         take_groups(page, id)
       end
     end
-      save_to_file
+    save_to_file
   end
 
   def take_items(page, id)
@@ -104,7 +102,7 @@ class Sniffer
       image_sizes(image, item_name)
     end
     @group_info[id].nil? ? @group_info[id] = 1 : @group_info[id] += 1
-    print_stats if (@counter % STATS_AMOUNT) == 0
+    print_stats if (@counter % STATS_AMOUNT).zero?
   end
 
   def image_sizes(image, item_name)
@@ -125,7 +123,7 @@ class Sniffer
   def groups_info
     ids = @group_ids.merge(@subgroup_ids)
     b = @group_info.values.reduce(:+)
-    @group_info.keys.sort.map { |k| p "#{ids[k]} - #{@group_info[k]} товаров, это - #{@group_info[k] / b.to_f * 100.0 }%"  }
+    @group_info.keys.sort.map { |k| p "#{ids[k]} - #{@group_info[k]} товаров, это - #{@group_info[k] / b.to_f * 100.0}%" }
   end
 
   def data_type(id)
@@ -137,13 +135,11 @@ class Sniffer
   end
 
   def save_to_file
-    File.open(FILE_NAME, 'a+') do |f|
-      f.puts (@results - @post_result)
-     end
+    File.open(FILE_NAME, 'a+') { |f| f.puts(@results - @post_result) }
   end
 
   def create_file
-    File.open(FILE_NAME).each_line {|line| @post_result << line}
+    File.open(FILE_NAME).each_line { |line| @post_result << line }
   end
 end
 Sniffer.new.parse

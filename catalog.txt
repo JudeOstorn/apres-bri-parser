@@ -1058,3 +1058,47 @@ group,"Торты, пирожные207",82,/storage/catalog/.thumbs/3daef93d90c8
 group,Восточные сладости20,83,/storage/catalog/.thumbs/bc4b61336b1d6d4e43cbbd55a35e87f1_h100.jpg,0
 group,"Жевательная резинка, освежающие конфеты44",84,/storage/catalog/.thumbs/e238eb7870fd3bdc03162005a360d9cb_h100.jpg,0
 group,Шоколадная паста9,324,/storage/catalog/.thumbs/eee188957c93a3186a11435c1e589895_h100.jpg,0
+group,"Молоко, сливки, молочные коктейли179",13,/storage/catalog/.thumbs/7d5f07a7cee1c1fd1812634e583b7b2b_h100.png,0
+group,Кисломолочные продукты184,12,/storage/catalog/.thumbs/e3faa462c68ace375e3a4ee0beeebaff_h100.png,0
+group,"Йогурты, десерты, творожки, пудинг297",11,/storage/catalog/.thumbs/221700580c1015252ae39e2d16bb0c3f_h100.png,0
+group,Творожные изделия156,22,/storage/catalog/.thumbs/130bb5978cc5c3344d06c4a94473e710_h100.png,0
+item, Хлеб Премиум 350г Смак,5,/storage/catalog/goods/.thumbs/f53ce9af056e0daecafc0b5b1856073c_w420h420.png,5168
+item, Батон Молочный 300г Смак,5,/storage/catalog/goods/.thumbs/986c9143adca80bfa482a2e247fd09d3_w420h420.jpg,26898
+group,"Хлеб, батон, лаваш90",34,/storage/catalog/.thumbs/7a4bd8b855d8645560a0a8cad6a13d6f_h100.jpg,0
+group,"Выпечка, кексы37",35,/storage/catalog/.thumbs/ceefdb53b8708b141dec2c7d2de1a27d_h100.jpg,0
+group,"Баранки, бублики, сушки, сухари53",32,/storage/catalog/.thumbs/36cbcd9dc10ca6ccaab54bca146f8b6d_h100.jpg,0
+item, Морковь мытая вес,6,/storage/catalog/goods/.thumbs/1f089c19a8d1e447fec476e7af487d22_w420h420.jpg,2047
+group,Фрукты41,38,/storage/catalog/.thumbs/e4d100abf7be09546c7060d679cd41f1_h100.jpg,0
+group,Овощи45,39,/storage/catalog/.thumbs/45200eb51bd64636276677bbdba66e69_h100.jpg,0
+group,"Зелень, салаты28",41,/storage/catalog/.thumbs/dc37b10573e635d933c156b18a2b695d_h100.jpg,0
+group,Грибы4,42,/storage/catalog/.thumbs/7de9f61be155c8ca481481c2cf20b357_h100.jpg,0
+group,Сладкие напитки211,44,/storage/catalog/.thumbs/97fecf48aee018604745378a7177f582_h100.jpg,0
+group,"Соки, нектары, морсы, компоты229",50,/storage/catalog/.thumbs/5f493aa60bbffc4ec80ff914c99e33dc_h100.jpg,0
+group,Крупы206,54,/storage/catalog/.thumbs/debfbb807c7d99e3b2b3019f75178162_h100.jpg,0
+group,Мука и смеси для выпечки47,57,/storage/catalog/.thumbs/499024e77eadea81f03f5f81ea79e8eb_h100.jpg,0
+group,Готовые блюда24,62,/storage/catalog/.thumbs/b12e009dd6f1926e3fe2cf5f4c410337_h100.jpg,0
+group,Мед37,64,/storage/catalog/.thumbs/e7a96cd20a3e8a035c60d8875c6e187b_h100.jpg,0
+group,"Специи, приправы, всё для выпечки449",71,/storage/catalog/.thumbs/87237119c7d6b97603eb7735b9901c75_h100.jpg,0
+group,"Уксус, маринады, горчица, хрен, аджика91",72,/storage/catalog/.thumbs/22732997aea08ce262ad07f77614beb4_h100.jpg,0
+item," Мусс йогуртный Даниссимо двухслойный карамельный 135мл 5,4% с персиком",11,/storage/catalog/goods/.thumbs/409d6e2357aecb69298f199eb5de00cb_w420h420.png,28914
+item, Сметана Простоквашино 180г 20%,12,/storage/catalog/goods/.thumbs/6ea34ca340cf4923237a555dd0e6a34b_w420h420.png,4620
+item," Молоко Кунгурское 1л 3,2%  пакет пленка",13,/storage/catalog/goods/.thumbs/85bd2db1f9dd92de34a55c8f7a6b399a_w420h420.jpg,3803
+item," Молоко Талицкое Облака 1л 3,5-4% бутылка изТалицы",13,/storage/catalog/goods/.thumbs/94a211dafa02413bd82cac7f15918b57_w420h420.jpg,25549
+item, Творог Простоквашино 220г 2%,22,/storage/catalog/goods/.thumbs/3531c55d39c2d4be71953f368ecfc1f2_w420h420.png,2387
+item, Хлеб Премиум 350г Смак,34,/storage/catalog/goods/.thumbs/f53ce9af056e0daecafc0b5b1856073c_w420h420.png,5168
+item, Батон Молочный 300г Смак,34,/storage/catalog/goods/.thumbs/986c9143adca80bfa482a2e247fd09d3_w420h420.jpg,26898
+group,Чай257,73,/storage/catalog/.thumbs/b22260fae8b72198a1f891e18e9c8eda_h100.jpg,0
+group,Кофе167,74,/storage/catalog/.thumbs/b16816d80dcf6e15415a59e5a7ed59e9_h100.jpg,0
+group,Горячий шоколад и какао13,75,/storage/catalog/.thumbs/c22b918e8d3688c6e6b70452a91bdb01_h100.jpg,0
+item, Виноград Дамские пальчики вес,38,/storage/catalog/goods/.thumbs/e2de5f941e64370b75da262fe323f845_w420h420.jpg,8526
+item, Морковь мытая вес,39,/storage/catalog/goods/.thumbs/1f089c19a8d1e447fec476e7af487d22_w420h420.jpg,2047
+item, Кинза вес,41,/storage/catalog/goods/.thumbs/26de3e220aa8d68dabb7d439f3700fcf_w420h420.jpg,2092
+item, Мята свежая 30г подложка,41,/storage/catalog/goods/.thumbs/362df77f5cf934ae081b5491ab993798_w420h420.jpg,25804
+subgroup,Детское шампанское14,48,/storage/catalog/.thumbs/06b3bce9e05126641ea83a7949f94ccb_h100.jpg,0
+item, Мука Гарнец 500г цельнозерновая ржаная,57,/storage/catalog/goods/.thumbs/54165f2ca02c5a7116d0dc05f1b48bd2_w420h420.jpg,4130
+item, Конина тушеная ГОСТ в/с 338г,62,/storage/catalog/goods/.thumbs/08517c809a79638f467a641257ff4cbf_w420h420.png,18498
+item, Вафельные рулетики Яшкино 160г вкус сгущенного молока,77,/storage/catalog/goods/.thumbs/5d076bd66f5acf861f1ee04a8f38d018_w420h420.jpg,5349
+group,Конфеты379,79,/storage/catalog/.thumbs/cf3ba8b695cc93a424650601915f1eb3_h100.jpg,0
+group,"Мармелад, зефир, пастила, суфле56",80,/storage/catalog/.thumbs/1293fadc1e54bee55867cbe43dfce652_h100.jpg,0
+group,Мучные кондитерские изделия420,81,/storage/catalog/.thumbs/4992f3ac55737848015f47314ca169f4_h100.jpg,0
+group,"Торты, пирожные204",82,/storage/catalog/.thumbs/3daef93d90c8d0a935629274ec47ace8_h100.jpg,0
