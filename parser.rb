@@ -1,9 +1,6 @@
 require 'mechanize'
 require 'csv'
 
-# 1. запись в файл без перезаписи, а лишь дополнением
-# 2. выход из цикла если @counter == 1000 (логика приложения)
-
 # class item, group and subgroup
 class Entity
   def entity_info
@@ -38,7 +35,7 @@ end
 # class search and save catalog in file
 class Sniffer
   URL = 'http://www.a-yabloko.ru/catalog/'.freeze
-  STATS_AMOUNT = 10
+  STATS_AMOUNT = 1000
   FILE_NAME = 'catalog.txt'.freeze
 
   def initialize
@@ -73,14 +70,14 @@ class Sniffer
   def parse
     create_file
     (@group_ids.keys + @subgroup_ids.keys).sort.each do |id|
-      break if @counter > STATS_AMOUNT   # а вот это до сих пор не работает Т_Т
+      break if @counter > STATS_AMOUNT
 
       @page.get(URL + id.to_s) do |page|
         take_items(page, id)
         take_groups(page, id)
       end
-      save_to_file
     end
+      save_to_file
   end
 
   def take_items(page, id)
@@ -127,8 +124,7 @@ class Sniffer
 
   def groups_info
     ids = @group_ids.merge(@subgroup_ids)
-    b = 0
-    @group_info.values.map {|a| b += a}
+    b = @group_info.values.reduce(:+)
     @group_info.keys.sort.map { |k| p "#{ids[k]} - #{@group_info[k]} товаров, это - #{@group_info[k] / b.to_f * 100.0 }%"  }
   end
 
@@ -147,10 +143,7 @@ class Sniffer
   end
 
   def create_file
-    if !File.file? FILE_NAME
-      @file = File.open(FILE_NAME)
-        @file.each_line {|line| @post_result << line}
-    end
+    File.open(FILE_NAME).each_line {|line| @post_result << line}
   end
 end
 Sniffer.new.parse
