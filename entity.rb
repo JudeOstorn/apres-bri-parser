@@ -1,6 +1,6 @@
 # class item, group and subgroup
 class Entity
-    attr_accessor(:type, :name, :group_id, :image_url, :id)
+  attr_accessor(:type, :name, :group_id, :image_url, :id)
   def entity_info
     [type, name, group_id, image_url, id].to_csv
   end

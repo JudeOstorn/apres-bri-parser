@@ -31,10 +31,10 @@ class Sniffer
     (@group_ids.keys + @subgroup_ids.keys).sort.each do |id|
       @page.get(URL + id.to_s) do |page|
         stop = take_items(page, id)
-        break if (stop == true)
+        break if stop == true
         take_groups(page, id)
       end
-        break if (stop == true)
+      break if stop == true
     end
     save_to_file
   end
@@ -45,9 +45,7 @@ class Sniffer
       @results << item.entity_info
       @page.get(item.image_url).save "./#{item.image_url}"
       continue = @stats.analyze(item.image_url, id, item.name)
-      if continue == false
-        return true
-      end
+      return true if continue == false
     end
   end
 

@@ -1,11 +1,11 @@
 require_relative 'config'
 
 # parser statistics
-class Statistics# < Sniffer
+class Statistics
   include Info
 
   def initialize(groups)
-    @groups = groups  #@group_ids.merge(@subgroup_ids)
+    @groups = groups # @group_ids.merge(@subgroup_ids)
     @counter = 0
     @group_info = {}
     @no_image_items = 0.0
