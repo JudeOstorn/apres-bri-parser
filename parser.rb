@@ -42,22 +42,20 @@ class Sniffer
   def take_items(page, id)
     page.css('.goods .item a.img').map do |row|
       item = Item.new(row, id)
-      if !@post_result.include?(item.id.to_s)
-        @results << item.entity_info
-        @page.get(item.image_url).save "./#{item.image_url}"
-        continue = @stats.analyze(item.image_url, id, item.name)
-        return true if continue == false
-      end
+      next if @post_result.include?(item.id)
+      @results << item.entity_info
+      @page.get(item.image_url).save "./#{item.image_url}"
+      continue = @stats.analyze(item.image_url, id, item.name)
+      return true if continue == false
     end
   end
 
   def take_groups(page, id)
     page.css('div.children a').map do |row|
       group = Group.new(row, id, data_type(id))
-      if !@post_result.include?(group.id.to_s)
-        @results << group.entity_info
-        @page.get(group.image_url).save "./#{group.image_url}"
-      end
+      next if @post_result.include?(group.id)
+      @results << group.entity_info
+      @page.get(group.image_url).save "./#{group.image_url}"
     end
   end
 
@@ -74,6 +72,6 @@ class Sniffer
   end
 
   def create_file
-    File.open(FILE_NAME).each_line { |line| @post_result << line[/(\d+)$/] }
+    File.open(FILE_NAME).each_line { |line| @post_result << line[/(\d+)$/].to_i }
   end
 end
