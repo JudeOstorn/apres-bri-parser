@@ -42,18 +42,22 @@ class Sniffer
   def take_items(page, id)
     page.css('.goods .item a.img').map do |row|
       item = Item.new(row, id)
-      @results << item.entity_info
-      @page.get(item.image_url).save "./#{item.image_url}"
-      continue = @stats.analyze(item.image_url, id, item.name)
-      return true if continue == false
+      if !@post_result.include?(item.id.to_s)
+        @results << item.entity_info
+        @page.get(item.image_url).save "./#{item.image_url}"
+        continue = @stats.analyze(item.image_url, id, item.name)
+        return true if continue == false
+      end
     end
   end
 
   def take_groups(page, id)
     page.css('div.children a').map do |row|
       group = Group.new(row, id, data_type(id))
-      @results << group.entity_info
-      @page.get(group.image_url).save "./#{group.image_url}"
+      if !@post_result.include?(group.id.to_s)
+        @results << group.entity_info
+        @page.get(group.image_url).save "./#{group.image_url}"
+      end
     end
   end
 
@@ -66,10 +70,10 @@ class Sniffer
   end
 
   def save_to_file
-    File.open(FILE_NAME, 'a+') { |f| f.puts(@results - @post_result) }
+    File.open(FILE_NAME, 'a+') { |f| f.puts(@results) }
   end
 
   def create_file
-    File.open(FILE_NAME).each_line { |line| @post_result << line }
+    File.open(FILE_NAME).each_line { |line| @post_result << line[/(\d+)$/] }
   end
 end
